@@ -1,8 +1,23 @@
 # Dockerize Ubuntu + Nginx + PHP7.4 FPM
 
-Docker Repo : 
+This is just a base image for a project that require 
+
+- Ubuntu 
+- php7.4-fpm
+- nginx
+
+Personally for my own use case 
+
+Github Repo : https://github.com/gaibz/docker-ubuntu20-php7.4fpm-nginx
+
+Docker Repo : https://hub.docker.com/r/gaibz/ubuntu20-php7.4-nginx
 
 # Setup & Build 
+
+## Tag
+```
+gaibz/ubuntu20-php7.4-nginx:latest
+```
 
 ## Nginx Server Config File
 

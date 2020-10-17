@@ -14,7 +14,7 @@ build:
   script:
   - docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}" ${DOCKER_REGISTRY}
   - docker build -t ${DOCKER_IMAGE_NAME} .
-  - docker tag ${DOCKER_IMAGE_NAME} ${DOCKER_USERNAME}/${DOCKER_IMAGE_NAME}:latest
-  - docker push ${DOCKER_USERNAME}/${DOCKER_IMAGE_NAME}:latest
+  - docker tag ${DOCKER_IMAGE_NAME} ${DOCKER_IMAGE_REPO}:latest
+  - docker push ${DOCKER_IMAGE_REPO}:latest
   only:
   - master

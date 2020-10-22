@@ -8,7 +8,7 @@ LABEL Maintainer="Herlangga Sefani <herlanggasefani@gmail.com>" \
 RUN mkdir -p /var/www/app
 
 # Base install
-RUN apt update
+RUN apt update --fix-missing
 RUN apt install git zip unzip curl gnupg2 ca-certificates lsb-release libicu-dev supervisor nginx -y
 
 # Install php7.4-fpm

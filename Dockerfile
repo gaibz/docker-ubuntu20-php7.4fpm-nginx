@@ -9,20 +9,18 @@ RUN mkdir -p /var/www/app
 
 # Base install
 RUN apt update
-RUN apt install curl gnupg2 ca-certificates lsb-release libicu-dev supervisor nginx -y
+RUN apt install git zip unzip curl gnupg2 ca-certificates lsb-release libicu-dev supervisor nginx -y
 
 # Install php7.4-fpm
 # Since the repo is supported on ubuntu 20
 RUN apt install php-fpm php-json php-pdo php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath php-intl -y
 
-# Install Nginx
-# RUN echo "deb http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \
-#     | tee /etc/apt/sources.list.d/nginx.list
-
-# RUN curl -fsSL https://nginx.org/keys/nginx_signing.key | apt-key add -
-# RUN apt-key fingerprint ABF5BD827BD9BF62
-# RUN apt update
-# RUN apt install nginx -y
+# Install composer
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+RUN php -r "unlink('composer-setup.php');"
+# Check if installation successfull
+RUN composer --help
 
 COPY ./entrypoint.sh ./entrypoint.sh
 

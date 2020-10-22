@@ -51,7 +51,3 @@ fpm ini
 ```
 80/tcp
 ```
-
-## What next ? 
-
-- certbot

@@ -7,8 +7,11 @@ LABEL Maintainer="Herlangga Sefani <herlanggasefani@gmail.com>" \
 # Setup document root
 RUN mkdir -p /var/www/app
 
+
 # Base install
 RUN apt update --fix-missing
+RUN  DEBIAN_FRONTEND=noninteractive
+RUN ln -snf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo Asia/Jakarta > /etc/timezone
 RUN apt install git zip unzip curl gnupg2 ca-certificates lsb-release libicu-dev supervisor nginx -y
 
 # Install php7.4-fpm
